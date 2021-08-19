@@ -9,5 +9,4 @@ class CreateMarketService(
     fun execute(market: Market): Market {
         return repository.save(market)
     }
-
 }
