@@ -1,5 +1,6 @@
 package br.com.veiga.core.services
 
+import br.com.veiga.core.exceptions.MarketNotFoundException
 import br.com.veiga.core.models.Market
 import br.com.veiga.core.models.SearchMarketFilter
 import br.com.veiga.core.repositories.MarketRepository
@@ -12,6 +13,6 @@ class SearchMarketService(
     }
 
     fun execute(id: Long): Market {
-        return repository.findById(id)
+        return repository.findById(id) ?: throw MarketNotFoundException(id)
     }
 }

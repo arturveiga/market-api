@@ -57,6 +57,8 @@ class MarketRepositoryImpl(
             predicates.add(criteriaBuilder.equal(markerRoot.get<String>("neighborhood"), it))
         }
 
+        predicates.add(criteriaBuilder.equal(markerRoot.get<String>("active"), true))
+
         criteriaQuery.select(market)
             .where(criteriaBuilder.or(*predicates.toTypedArray()))
 
