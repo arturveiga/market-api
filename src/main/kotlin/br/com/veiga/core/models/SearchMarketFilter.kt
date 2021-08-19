@@ -1,8 +1,8 @@
 package br.com.veiga.core.models
 
 data class SearchMarketFilter(
-    val district: String?,
-    val region05: String?,
-    val name: String?,
-    val neighborhood: String?
+    val district: String? = null,
+    val region05: String? = null,
+    val name: String? = null,
+    val neighborhood: String? = null
 )
