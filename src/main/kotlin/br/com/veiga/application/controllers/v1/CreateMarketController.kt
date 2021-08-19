@@ -1,5 +1,6 @@
 package br.com.veiga.application.controllers.v1
 
+import br.com.veiga.application.controllers.v1.mapping.MarketV1RestMapping
 import br.com.veiga.application.controllers.v1.request.CreateMarketRequest
 import br.com.veiga.application.controllers.v1.request.extensions.toModel
 import br.com.veiga.application.controllers.v1.response.MarketResponse
@@ -22,6 +23,4 @@ class CreateMarketController(
         val market = serviceCreate.execute(request.toModel())
         return market.toResponse()
     }
-
 }
-

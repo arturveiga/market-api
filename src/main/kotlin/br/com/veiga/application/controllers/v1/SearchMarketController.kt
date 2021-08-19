@@ -1,5 +1,6 @@
 package br.com.veiga.application.controllers.v1
 
+import br.com.veiga.application.controllers.v1.mapping.MarketV1RestMapping
 import br.com.veiga.application.controllers.v1.request.SearchMarketFilterRequest
 import br.com.veiga.application.controllers.v1.request.extensions.toModel
 import br.com.veiga.application.controllers.v1.response.MarketResponse
@@ -17,7 +18,6 @@ class SearchMarketController(
 ) {
     @GetMapping
     fun execute(searchMarketFilterRequest: SearchMarketFilterRequest, pageable: Pageable): Page<MarketResponse> {
-        println(searchMarketFilterRequest)
         val markets = searchMarketService.execute(
             filter = searchMarketFilterRequest.toModel(),
             page = pageable.pageNumber,

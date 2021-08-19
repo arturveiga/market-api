@@ -1,5 +1,6 @@
 package br.com.veiga.application.controllers.v1
 
+import br.com.veiga.application.controllers.v1.mapping.MarketV1RestMapping
 import br.com.veiga.core.services.DeleteMarketService
 import org.springframework.http.HttpStatus.NO_CONTENT
 import org.springframework.web.bind.annotation.DeleteMapping
