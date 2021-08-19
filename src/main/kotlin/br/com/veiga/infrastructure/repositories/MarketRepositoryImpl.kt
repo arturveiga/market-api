@@ -1,5 +1,6 @@
 package br.com.veiga.infrastructure.repositories
 
+import br.com.veiga.core.exceptions.MarketNotFoundException
 import br.com.veiga.core.models.Market
 import br.com.veiga.core.models.SearchMarketFilter
 import br.com.veiga.core.repositories.MarketRepository
@@ -26,7 +27,7 @@ class MarketRepositoryImpl(
     }
 
     override fun findById(id: Long): Market {
-        val marketEntity = jpaRepository.findById(id).orElseThrow { RuntimeException("Not found") }
+        val marketEntity = jpaRepository.findById(id).orElseThrow { MarketNotFoundException(id) }
         return marketEntity.toModel()
     }
 
@@ -67,5 +68,9 @@ class MarketRepositoryImpl(
         return resultList.map {
             it.toModel()
         }.toList()
+    }
+
+    override fun delete(id: Long) {
+        jpaRepository.deleteById(id)
     }
 }
