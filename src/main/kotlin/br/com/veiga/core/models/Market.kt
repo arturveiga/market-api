@@ -1,11 +1,6 @@
-package br.com.veiga.models
+package br.com.veiga.core.models
 
-import javax.persistence.Entity
-import javax.persistence.Id
-
-@Entity
 data class Market(
-    @Id
     val id: Long? = null,
     val longitude: Double,
     val latitude: Double,
