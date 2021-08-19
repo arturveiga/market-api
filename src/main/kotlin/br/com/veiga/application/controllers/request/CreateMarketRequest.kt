@@ -1,4 +1,4 @@
-package br.com.veiga.controllers.request
+package br.com.veiga.application.controllers.request
 
 import javax.validation.constraints.NotBlank
 

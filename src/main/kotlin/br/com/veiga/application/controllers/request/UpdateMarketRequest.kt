@@ -1,9 +1,6 @@
-package br.com.veiga.controllers.request
+package br.com.veiga.application.controllers.request
 
-import com.fasterxml.jackson.annotation.JsonInclude
-
-@JsonInclude(JsonInclude.Include.NON_NULL)
-data class MarketUpdateRequest(
+data class UpdateMarketRequest(
     val longitude: Double?,
     val latitude: Double?,
     val sector: String?,

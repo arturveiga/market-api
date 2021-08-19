@@ -1,7 +1,7 @@
-package br.com.veiga.controllers.request.extensions
+package br.com.veiga.application.controllers.request.extensions
 
-import br.com.veiga.controllers.request.CreateMarketRequest
-import br.com.veiga.models.Market
+import br.com.veiga.application.controllers.request.CreateMarketRequest
+import br.com.veiga.core.models.Market
 
 fun CreateMarketRequest.toModel(): Market {
     return Market(
