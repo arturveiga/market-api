@@ -1,17 +1,21 @@
 package br.com.veiga.infrastructure.configurations
 
 import br.com.veiga.core.services.CreateMarketService
+import br.com.veiga.core.services.SearchMarketService
 import br.com.veiga.infrastructure.repositories.MarketRepositoryImpl
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
 @Configuration
-class BeanConfiguration(
-    private val marketRepositoryImpl: MarketRepositoryImpl
-) {
+class BeanConfiguration() {
 
     @Bean
-    fun createMarketService(): CreateMarketService {
+    fun createMarketService(marketRepositoryImpl: MarketRepositoryImpl): CreateMarketService {
         return CreateMarketService(marketRepositoryImpl)
+    }
+
+    @Bean
+    fun searchMarketService(marketRepositoryImpl: MarketRepositoryImpl): SearchMarketService {
+        return SearchMarketService(marketRepositoryImpl)
     }
 }

@@ -1,15 +1,7 @@
-package br.com.veiga.infrastructure.models
+package br.com.veiga.application.controllers.v1.response
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
-
-@Entity
-data class MarketEntity(
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
+data class MarketResponse(
+    val id: Long,
     val longitude: Double,
     val latitude: Double,
     val sector: String,

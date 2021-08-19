@@ -46,16 +46,6 @@ internal class DummyTest {
     )
 
     @Test
-    fun `should be create a new market`() {
-        val marketToSave = market.copy(id = null)
-        Mockito.`when`(repository.save(any())).thenReturn(market)
-
-        val marketSaved = serviceCreate.save(marketToSave)
-
-        Assertions.assertThat(marketSaved).isNotNull
-    }
-
-    @Test
     fun `should be delete by id`() {
         val marketDeleted = market.copy(
             active = false
@@ -64,8 +54,7 @@ internal class DummyTest {
         Mockito.`when`(repository.findById(anyLong())).thenReturn(Optional.of(market))
         Mockito.`when`(repository.save(any())).thenReturn(marketDeleted)
 
-        serviceCreate.deleteById(anyLong())
-
+        
         val captor = argumentCaptor<Market>()
 
         verify(repository).save(captor.capture())
