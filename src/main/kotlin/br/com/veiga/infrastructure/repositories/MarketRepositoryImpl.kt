@@ -8,6 +8,7 @@ import br.com.veiga.core.repositories.MarketRepository
 import br.com.veiga.infrastructure.models.MarketEntity
 import br.com.veiga.infrastructure.repositories.extensions.toEntity
 import br.com.veiga.infrastructure.repositories.extensions.toModel
+import br.com.veiga.infrastructure.repositories.jpa.MarketJpaRepository
 import org.springframework.stereotype.Repository
 import javax.persistence.EntityManager
 import javax.persistence.criteria.CriteriaBuilder

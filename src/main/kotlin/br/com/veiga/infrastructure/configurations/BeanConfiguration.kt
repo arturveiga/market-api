@@ -3,8 +3,10 @@ package br.com.veiga.infrastructure.configurations
 import br.com.veiga.core.services.CreateMarketService
 import br.com.veiga.core.services.DeleteMarketService
 import br.com.veiga.core.services.SearchMarketService
+import br.com.veiga.core.services.UpdateDatabaseService
 import br.com.veiga.core.services.UpdateMarketService
 import br.com.veiga.infrastructure.repositories.MarketRepositoryImpl
+import br.com.veiga.infrastructure.repositories.UpdateDatabaseRepositoryCSV
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -29,5 +31,10 @@ class BeanConfiguration() {
     @Bean
     fun updateMarketService(marketRepositoryImpl: MarketRepositoryImpl): UpdateMarketService {
         return UpdateMarketService(marketRepositoryImpl)
+    }
+
+    @Bean
+    fun updateDatabaseService(updateDatabaseRepositoryCSV: UpdateDatabaseRepositoryCSV): UpdateDatabaseService {
+        return UpdateDatabaseService(updateDatabaseRepositoryCSV)
     }
 }

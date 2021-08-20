@@ -26,8 +26,15 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springdoc:springdoc-openapi-ui:1.5.10")
     implementation("org.springdoc:springdoc-openapi-data-rest:1.5.10")
+    implementation("org.apache.commons:commons-csv:1.5")
+    implementation("com.github.doyaaaaaken:kotlin-csv-jvm:0.15.2")
+    implementation("net.logstash.logback:logstash-logback-encoder:6.6")
+
     runtimeOnly("com.h2database:h2")
     runtimeOnly("org.postgresql:postgresql")
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    testImplementation("ch.qos.logback:logback-classic:1.2.5")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
     testImplementation("org.mockito:mockito-inline:2.13.0")
@@ -53,7 +60,7 @@ tasks.withType<Test> {
 }
 tasks.test {
     extensions.configure(JacocoTaskExtension::class) {
-        val destinationFile = file("$buildDir/jacoco/jacoco.exec")
+        file("$buildDir/jacoco/jacoco.exec")
     }
 
     finalizedBy("jacocoTestReport")
