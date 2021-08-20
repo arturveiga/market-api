@@ -8,7 +8,7 @@ import br.com.veiga.core.repositories.MarketRepository
 class SearchMarketService(
     private val repository: MarketRepository
 ) {
-    fun execute(filter: SearchMarketFilter?, page: Int, size: Int): List<Market> {
+    fun execute(filter: SearchMarketFilter, page: Int, size: Int): List<Market> {
         return repository.findAll(filter, page, size)
     }
 

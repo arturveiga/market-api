@@ -1,7 +1,6 @@
 version: '3.1'
 
 services:
-
   db:
     image: postgres
     container_name: db_market
@@ -16,13 +15,12 @@ services:
 
   api:
     container_name: market-app
-    image: .
+    build: .
     expose:
       - 8080
     ports:
       - 8080:8080
     volumes:
-      - /root/GED:/root/GED
       - /tmp/_cache:/app/_cache
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db/market-app
