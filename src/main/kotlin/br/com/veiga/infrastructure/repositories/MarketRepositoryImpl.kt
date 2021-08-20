@@ -3,6 +3,7 @@ package br.com.veiga.infrastructure.repositories
 import br.com.veiga.core.exceptions.MarketNotFoundException
 import br.com.veiga.core.models.Market
 import br.com.veiga.core.models.SearchMarketFilter
+import br.com.veiga.core.models.UpdateMarket
 import br.com.veiga.core.repositories.MarketRepository
 import br.com.veiga.infrastructure.models.MarketEntity
 import br.com.veiga.infrastructure.repositories.extensions.toEntity
@@ -74,5 +75,30 @@ class MarketRepositoryImpl(
 
     override fun delete(id: Long) {
         jpaRepository.deleteById(id)
+    }
+
+    override fun update(id: Long, updateMarket: UpdateMarket): Market {
+        val marketEntity = jpaRepository.findById(id).orElseThrow { MarketNotFoundException(id) }
+        return jpaRepository.save(
+            marketEntity.copy(
+                longitude = updateMarket.longitude ?: marketEntity.longitude,
+                latitude = updateMarket.latitude ?: marketEntity.latitude,
+                sector = updateMarket.sector ?: marketEntity.sector,
+                area = updateMarket.area ?: marketEntity.area,
+                districtCode = updateMarket.districtCode ?: marketEntity.districtCode,
+                districtName = updateMarket.districtName ?: marketEntity.districtName,
+                subCityHallCode = updateMarket.subCityHallCode ?: marketEntity.subCityHallCode,
+                subCityHallName = updateMarket.subCityHallName ?: marketEntity.subCityHallName,
+                region05 = updateMarket.region05 ?: marketEntity.region05,
+                region08 = updateMarket.region08 ?: marketEntity.region08,
+                name = updateMarket.name ?: marketEntity.name,
+                register = updateMarket.register ?: marketEntity.register,
+                street = updateMarket.street ?: marketEntity.street,
+                number = updateMarket.number ?: marketEntity.number,
+                neighborhood = updateMarket.neighborhood ?: marketEntity.neighborhood,
+                reference = updateMarket.reference ?: marketEntity.reference,
+                active = true,
+            )
+        ).toModel()
     }
 }

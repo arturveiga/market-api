@@ -15,7 +15,7 @@ services:
 
   api:
     container_name: market-app
-    build: .
+    image: market:1.0.0
     expose:
       - 8080
     ports:
