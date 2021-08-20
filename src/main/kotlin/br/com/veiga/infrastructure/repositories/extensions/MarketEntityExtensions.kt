@@ -45,6 +45,7 @@ fun Market.toEntity(): MarketEntity {
         street = this.street,
         number = this.number,
         neighborhood = this.neighborhood,
-        reference = this.reference
+        reference = this.reference,
+        active = this.active
     )
 }
