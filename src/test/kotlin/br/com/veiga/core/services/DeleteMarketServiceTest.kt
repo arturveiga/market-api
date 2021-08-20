@@ -1,5 +1,6 @@
 package br.com.veiga.core.services
 
+import br.com.veiga.core.exceptions.MarketNotFoundException
 import br.com.veiga.core.models.Market
 import br.com.veiga.core.repositories.MarketRepository
 import br.com.veiga.mocks.MarketMock
@@ -32,5 +33,15 @@ internal class DeleteMarketServiceTest {
         Mockito.verify(repository).save(captor.capture())
 
         Assertions.assertThat(captor.firstValue.active).isFalse
+    }
+
+    @Test
+    fun `should be a market not found exception`() {
+        Mockito.`when`(repository.findById(Mockito.anyLong())).thenReturn(null)
+
+        Assertions.assertThatThrownBy {
+            deleteMarketService.execute(anyLong())
+        }
+            .isInstanceOf(MarketNotFoundException::class.java)
     }
 }

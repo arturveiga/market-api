@@ -51,25 +51,4 @@ internal class CreateMarketControllerTest {
             .andExpect(jsonPath("latitude").value(marketResponse.latitude))
             .andExpect(jsonPath("subCityHallCode").value(marketResponse.subCityHallCode))
     }
-
-    @Test
-    fun `when fields invalid send bad request`() {
-        val createMarketRequest = MarketMock.createMarketRequest.copy(
-            name = ""
-        )
-        val marketResponse = MarketMock.marketResponse
-
-        BDDMockito.given(service.execute(createMarketRequest.toModel())).willReturn(MarketMock.market)
-        val json = ObjectMapper().writeValueAsString(createMarketRequest)
-
-        val request = post(URL_BASE)
-            .contentType(MediaType.APPLICATION_JSON)
-            .accept(MediaType.APPLICATION_JSON)
-            .content(json)
-
-        mvc
-            .perform(request)
-            .andExpect(status().isBadRequest)
-    }
-
 }
