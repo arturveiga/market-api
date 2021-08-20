@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    container_name: db_market
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: market-app
+      POSTGRES_PASSWORD: market-app
+    volumes:
+      - /private/var/lib/postgresql:/var/lib/postgresql
+
+  api:
+    container_name: market-app
+    image: .
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    volumes:
+      - /root/GED:/root/GED
+      - /tmp/_cache:/app/_cache
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db/market-app
+      SPRING_DATASOURCE_USERNAME: market-app
+      SPRING_DATASOURCE_PASSWORD: market-app
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - db
