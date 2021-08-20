@@ -25,5 +25,6 @@ data class MarketEntity(
     val street: String,
     val number: String,
     val neighborhood: String,
-    val reference: String
+    val reference: String,
+    val active: Boolean
 )
