@@ -40,7 +40,6 @@ class UpdateDatabaseRepositoryCSV(
                     )
 
                     marketEntity.id?.let {
-                        println(marketEntity.id)
                         val optionalMarket = marketJpaRepository.findById(it)
                         if (!optionalMarket.isPresent) {
                             markets.add(marketEntity)

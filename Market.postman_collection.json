@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "7ba18e7c-f86c-473f-a0d9-8ed82f51eee2",
+		"name": "Market",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Find all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/v1/markets",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"markets"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "neighborhood",
+							"value": "cohama",
+							"disabled": true
+						},
+						{
+							"key": "district",
+							"value": "DISTCTI 13",
+							"disabled": true
+						},
+						{
+							"key": "region05",
+							"value": "rg05",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "artb",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/v1/markets/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"markets",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find by ID Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/v1/markets/3",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"markets",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Storage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/v1/markets/update-storage",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"markets",
+						"update-storage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitude\": -1.2323,\r\n    \"latitude\": 2.000,\r\n    \"sector\": \"AI PAI PARA\",\r\n    \"area\": \"area51\",\r\n    \"districtCode\": \"DSIS-1\",\r\n    \"districtName\":\"DISTCTI 13\",\r\n    \"subCityHallCode\": 2,\r\n    \"subCityHallName\": \"Sant lzuiz\",\r\n    \"region05\":  \"rg05\",\r\n    \"region08\":  \"region11\",\r\n    \"name\":  \"artb\",\r\n    \"register\":  \"102304\",\r\n    \"street\":  \"rua projetada\",\r\n    \"number\": \"1023\",\r\n    \"neighborhood\": \"cohama\",\r\n    \"reference\": \"felipe é meu amigao do coracao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api}}/v1/markets",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"markets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"longitude\": -1.2323,\r\n    \"latitude\": 2.000,\r\n    \"sector\": \"SCTS\",\r\n    \"area\": \"area51\",\r\n    \"districtCode\": \"DSIS-1\",\r\n    \"districtName\":\"DISTCTI 13\",\r\n    \"subCityHallCode\": 2,\r\n    \"subCityHallName\": \"Sant lzuiz\",\r\n    \"region05\":  \"rg05\",\r\n    \"region08\":  \"region11\",\r\n    \"name\":  \"artb\",\r\n    \"register\":  \"102304\",\r\n    \"street\":  \"rua projetada\",\r\n    \"number\": \"1023\",\r\n    \"neighborhood\": \"cohama\",\r\n    \"reference\": \"felipe é meu amigao do coracao\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api}}/v1/markets/2636",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"markets",
+						"2636"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
