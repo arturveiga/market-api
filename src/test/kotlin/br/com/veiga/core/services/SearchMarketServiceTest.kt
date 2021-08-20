@@ -55,7 +55,7 @@ internal class SearchMarketServiceTest {
 
     @Test
     fun `should be a exception when id is not found`() {
-        Mockito.`when`(repository.findById(any())).thenThrow(MarketNotFoundException::class.java)
+        Mockito.`when`(repository.findById(any())).thenReturn(null)
 
         Assertions.assertThatThrownBy {
             searchMarketService.execute(any())
