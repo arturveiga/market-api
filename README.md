@@ -88,7 +88,6 @@ dados por exemplo.
 Um exemplo de como uma chamada funciona
 
 ```mermaid
-sequenceDiagram
 Request ->> Application: /v1/markets
 Application ->> Core: CadastrarService
 Core ->> Infra: Salvar em algum banco de dados
