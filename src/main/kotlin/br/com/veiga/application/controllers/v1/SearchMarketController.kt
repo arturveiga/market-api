@@ -17,9 +17,9 @@ class SearchMarketController(
     private val searchMarketService: SearchMarketService
 ) {
     @GetMapping
-    fun execute(searchMarketFilterRequest: SearchMarketFilterRequest?, pageable: Pageable): Page<MarketResponse> {
+    fun execute(searchMarketFilterRequest: SearchMarketFilterRequest, pageable: Pageable): Page<MarketResponse> {
         val markets = searchMarketService.execute(
-            filter = searchMarketFilterRequest?.toModel(),
+            filter = searchMarketFilterRequest.toModel(),
             page = pageable.pageNumber,
             size = pageable.pageSize
         )

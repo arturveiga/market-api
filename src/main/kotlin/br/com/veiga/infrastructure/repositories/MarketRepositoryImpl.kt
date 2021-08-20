@@ -31,7 +31,7 @@ class MarketRepositoryImpl(
         return marketEntity.toModel()
     }
 
-    override fun findAll(filter: SearchMarketFilter?, page: Int, size: Int): List<Market> {
+    override fun findAll(filter: SearchMarketFilter, page: Int, size: Int): List<Market> {
 
         val criteriaBuilder: CriteriaBuilder = entityManager.criteriaBuilder
         val criteriaQuery: CriteriaQuery<MarketEntity> = criteriaBuilder.createQuery(
@@ -41,19 +41,19 @@ class MarketRepositoryImpl(
         val markerRoot: Root<MarketEntity> = criteriaQuery.from(MarketEntity::class.java)
         val predicates = mutableListOf<Predicate>()
 
-        filter?.district?.let {
+        filter.district?.let {
             predicates.add(criteriaBuilder.equal(markerRoot.get<String>("districtName"), it))
         }
 
-        filter?.region05?.let {
+        filter.region05?.let {
             predicates.add(criteriaBuilder.equal(markerRoot.get<String>("region05"), it))
         }
 
-        filter?.name?.let {
+        filter.name?.let {
             predicates.add(criteriaBuilder.equal(markerRoot.get<String>("name"), it))
         }
 
-        filter?.neighborhood?.let {
+        filter.neighborhood?.let {
             predicates.add(criteriaBuilder.equal(markerRoot.get<String>("neighborhood"), it))
         }
 
