@@ -3,6 +3,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/market-app
     username: market-app
     password: market-app
+  jpa:
+    hibernate:
+      ddl-auto: update
 
 springdoc:
   api-docs:

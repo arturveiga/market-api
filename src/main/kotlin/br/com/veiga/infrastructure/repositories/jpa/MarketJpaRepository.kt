@@ -1,4 +1,4 @@
-package br.com.veiga.infrastructure.repositories
+package br.com.veiga.infrastructure.repositories.jpa
 
 import br.com.veiga.infrastructure.models.MarketEntity
 import org.springframework.data.jpa.repository.JpaRepository
